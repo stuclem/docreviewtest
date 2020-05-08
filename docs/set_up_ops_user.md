@@ -6,7 +6,7 @@ By default, after deployment, a VCH runs with the same user account as you used 
 
 ## Test Paragraph
 
-This is a new para.
+This is a new para. It's great.
 
 ## New Header
 
