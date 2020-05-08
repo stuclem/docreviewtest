@@ -6,6 +6,12 @@ During deployment of a VCH, `vic-machine` uses the vSphere account that you spec
 
 By default, after deployment, a VCH runs with the same user account as you used to deploy that VCH. In this case, a VCH uses the vSphere administrator account for post-deployment operations, meaning that it runs with full vSphere administrator privileges. Running with full vSphere administrator privileges is excessive, and potentially a security risk.
 
+## Test Paragraph
+
+This is a new para.
+
+## New Header
+
 To avoid this situation, you can configure a VCH so that it uses different user accounts for deployment and for post-deployment operation by using the `vic-machine create --ops-user` and `--ops-password` options when you deploy the VCH. By specifying `--ops-user`, you can limit the post-deployment privileges of the VCH to only those vSphere privileges that it needs.
 
 - [How `--ops-user` Works](#behavior)
@@ -49,7 +55,7 @@ When you deploy a VCH, the user account that you specify in `--ops-user` must ha
 
     The best practice when assigning roles in vSphere is to assign the roles to user groups and then to add users to those groups, rather than assigning roles to the users directly.
 
-2. Go to **Administration** > **Roles** and create one role for each type of inventory object that VCHs need to access.
+1. Go to **Administration** > **Roles** and create one role for each type of inventory object that VCHs need to access.
 
     It is possible to create a single role, but by creating multiple roles you keep the privileges of the VCH as granular as possible.
 
@@ -168,6 +174,7 @@ When you deploy a VCH, the user account that you specify in `--ops-user` must ha
 <td><code>VCH - endpoint</code></td>
 <td>Yes</td>
 </tr></tbody></table>
+
 
 **What to do next**
 
