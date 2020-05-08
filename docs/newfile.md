@@ -10,7 +10,7 @@ Texting testing testing
 |Option|Description|
 |---|---|
 |Thing 1|It's nice|
-|Thing 2|It's better|
+|Thing 2|It's worse|
 
 ## Subhead 1
 
