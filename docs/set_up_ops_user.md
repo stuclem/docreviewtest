@@ -2,8 +2,6 @@
 
 A virtual container host (VCH) appliance requires the appropriate permissions in vSphere to perform various tasks during VCH operation. 
 
-During deployment of a VCH, `vic-machine` uses the vSphere account that you specify in either of the `vic-machine create --user` or `--target` options for all deployment operations. Deployment of a VCH requires a user account with vSphere administrator privileges. However, day-to-day operation of a VCH requires fewer vSphere permissions than deployment.
-
 By default, after deployment, a VCH runs with the same user account as you used to deploy that VCH. In this case, a VCH uses the vSphere administrator account for post-deployment operations, meaning that it runs with full vSphere administrator privileges. Running with full vSphere administrator privileges is excessive, and potentially a security risk.
 
 ## Test Paragraph
@@ -19,14 +17,10 @@ To avoid this situation, you can configure a VCH so that it uses different user 
 - [`vic-machine` Options](#options)
 - [Example `vic-machine` Command](#example)
 
-## How `--ops-user` Works  <a id="behavior"></a>
-
-If you use `--ops-user` to specify a different user account for post-deployment operation, `vic-machine` and the VCH behave differently to how they behave in a default deployment.
-
 ### Default Behavior
 
 - When you create a VCH, you provide vSphere administrator credentials to `vic-machine create`, either in `--target` or in the `--user` and `--password` options. During deployment, `vic-machine create` uses these credentials to log in to vSphere and create the VCH. The VCH safely and securely stores the vSphere administrator credentials, for use in post-deployment operation.
-- When you run other `vic-machine` commands on the VCH after deployment, for example, `ls`, `upgrade`, or `configure`, you again provide the vSphere administrator credentials in the `--target` or `--user` and `--password` options. Again, `vic-machine` uses these credentials to log in to vSphere to retrieve the necessary information or to perform upgrade or configuration tasks on the VCH.
+- Blah blah blah
 - When a container developer creates a container in the VCH, they authenticate with the VCH with their client certificate. In other words, the developer interacts with the VCH via the Docker client, and does not need to provide any vSphere credentials. However, the VCH uses the stored vSphere administrator credentials that you provided during deployment to log in to vSphere to create the container VM.
 
 ### Behavior with `--ops-user` Specified
@@ -34,6 +28,10 @@ If you use `--ops-user` to specify a different user account for post-deployment 
 - When you create a VCH, you provide vSphere administrator credentials to `vic-machine create`, either in `--target` or in the `--user` and `--password` options. You also provide the credentials for an account with lesser privileges in the `--ops-user` and `--ops-password` options. During deployment, `vic-machine create` uses the vSphere administrator credentials to log in to vSphere and create the VCH, in the same way as in the default case. The credentials that you specify in `--ops-user` and `--ops-password` are safely and securely stored in the VCH, for use in post-deployment operation. In this case, the VCH does not store the vSphere administrator credentials.
 - When you run other `vic-machine` commands on the VCH after deployment, for example, `ls`, `upgrade`, or `configure`, you provide the vSphere administrator credentials in the `--target` or `--user` and `--password` options. This is the same as in the default case. The stored `--ops-user` and `--ops-password` credentials are not used.
 - When a container developer creates a container in the VCH, the VCH uses the stored `--ops-user` and `--ops-password` credentials that you provided during deployment to log in to vSphere to create the container VM.
+
+## How `--ops-user` Works  <a id="behavior"></a>
+
+If you use `--ops-user` to specify a different user account for post-deployment operation, `vic-machine` and the VCH behave differently to how they behave in a default deployment.
 
 
 ## Create a User Account for `--ops-user` <a id="createuser"></a>
