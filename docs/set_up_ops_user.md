@@ -10,6 +10,10 @@ This is a new para. It's great.
 
 ## New Header
 
+This is some new content.
+
+## New Header
+
 To avoid this situation, you can configure a VCH so that it uses different user accounts for deployment and for post-deployment operation by using the `vic-machine create --ops-user` and `--ops-password` options when you deploy the VCH. By specifying `--ops-user`, you can limit the post-deployment privileges of the VCH to only those vSphere privileges that it needs.
 
 - [How `--ops-user` Works](#behavior)
